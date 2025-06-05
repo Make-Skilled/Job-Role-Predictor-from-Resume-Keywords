@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Role Predictor - AI-Powered Resume Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='landing.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('home') }}">
+                <i class="fas fa-brain"></i> Job Role Predictor
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('predictions') }}">Predictions</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category if category != 'error' else 'danger' }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>Discover Your Perfect Job Role</h1>
+                    <p class="lead">Upload your resume and let our AI analyze your skills and experience to suggest the most suitable job roles for your career.</p>
+                    <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data" class="upload-form" id="resumeForm">
+                        <div class="input-group mb-3">
+                            <input type="file" class="form-control" name="resume" accept=".pdf,.txt,.doc,.docx" required 
+                                   onchange="updateFileName(this)">
+                            <button class="btn btn-primary" type="submit" id="uploadButton">
+                                <i class="fas fa-upload"></i> Analyze Resume
+                            </button>
+                        </div>
+                        <small class="text-light">Supported formats: PDF, TXT, DOC, DOCX (Max size: 16MB)</small>
+                        <div id="fileInfo" class="mt-2 text-light"></div>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image-container">
+                        <img src="{{ url_for('static', filename='images/ai-analysis.svg') }}" alt="AI Analysis" class="hero-image">
+                        <div class="floating-elements">
+                            <div class="floating-element element-1">
+                                <i class="fas fa-code"></i>
+                                <span>Skills</span>
+                            </div>
+                            <div class="floating-element element-2">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Experience</span>
+                            </div>
+                            <div class="floating-element element-3">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Education</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="text-center mb-5">Key Features</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>AI-Powered Analysis</h3>
+                        <p>Advanced NLP algorithms analyze your resume content to extract skills and experience.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Accurate Predictions</h3>
+                        <p>Machine learning model trained on extensive data to provide precise job role suggestions.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h3>Instant Results</h3>
+                        <p>Get immediate feedback with confidence scores and extracted skills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="text-center mb-5">How It Works</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>Upload Resume</h4>
+                        <p>Upload your resume in PDF or TXT format</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>AI Analysis</h4>
+                        <p>Our AI analyzes your skills and experience</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>Skill Extraction</h4>
+                        <p>Key skills are extracted from your resume</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h4>Get Results</h4>
+                        <p>Receive job role suggestions with confidence scores</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Job Role Predictor</h5>
+                    <p>AI-powered resume analysis for better career decisions.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p>&copy; 2024 Job Role Predictor. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='landing.js') }}"></script>
+</body>
+</html> 

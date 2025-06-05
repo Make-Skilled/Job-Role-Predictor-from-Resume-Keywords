@@ -1,0 +1,86 @@
+{
+    "accuracy": 0.5,
+    "std_dev": 0.5,
+    "top_features": [
+        {
+            "feature": "background",
+            "importance": 0.013914287922937387
+        },
+        {
+            "feature": "automation",
+            "importance": 0.010161676328712049
+        },
+        {
+            "feature": "engineer",
+            "importance": 0.010005960122623413
+        },
+        {
+            "feature": "strong background",
+            "importance": 0.009748565580107886
+        },
+        {
+            "feature": "expertise",
+            "importance": 0.009701480410608575
+        },
+        {
+            "feature": "data",
+            "importance": 0.009532028286263188
+        },
+        {
+            "feature": "design",
+            "importance": 0.009392331860623888
+        },
+        {
+            "feature": "security",
+            "importance": 0.00904717914097845
+        },
+        {
+            "feature": "development",
+            "importance": 0.008591698137468911
+        },
+        {
+            "feature": "developer",
+            "importance": 0.008385598009553763
+        },
+        {
+            "feature": "cloud",
+            "importance": 0.00829538513122642
+        },
+        {
+            "feature": "software",
+            "importance": 0.007791661886918352
+        },
+        {
+            "feature": "infrastructure",
+            "importance": 0.007756201775273708
+        },
+        {
+            "feature": "devops engineer",
+            "importance": 0.007265293628214225
+        },
+        {
+            "feature": "devops",
+            "importance": 0.007224894414484734
+        },
+        {
+            "feature": "code",
+            "importance": 0.007113640693846015
+        },
+        {
+            "feature": "research",
+            "importance": 0.007098763510035733
+        },
+        {
+            "feature": "database",
+            "importance": 0.007035889284831768
+        },
+        {
+            "feature": "data engineer",
+            "importance": 0.0066727686026171575
+        },
+        {
+            "feature": "microservices",
+            "importance": 0.006621298567288474
+        }
+    ]
+}

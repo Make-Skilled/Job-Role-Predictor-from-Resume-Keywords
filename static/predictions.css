@@ -1,0 +1,333 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    padding-top: 70px;
+}
+
+/* Navigation */
+.navbar {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: relative;
+}
+
+.navbar-brand i {
+    margin-right: 8px;
+    color: #3498db;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover i {
+    transform: rotate(15deg);
+}
+
+.nav-link {
+    color: rgba(255,255,255,0.9) !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #fff !important;
+}
+
+/* Main Content */
+.main-content {
+    padding: 2rem 0;
+}
+
+/* Main Card */
+.main-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    background: #fff;
+    transition: transform 0.3s ease;
+}
+
+.main-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-title {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* Role Box */
+.role-box {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.predicted-role {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.predicted-role i {
+    font-size: 2.5rem;
+    color: rgba(255,255,255,0.9);
+}
+
+.confidence-score {
+    margin-top: 1rem;
+}
+
+.progress {
+    height: 10px;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 5px;
+}
+
+.progress-bar {
+    background-color: #2ecc71;
+    border-radius: 5px;
+    transition: width 1s ease-in-out;
+}
+
+/* Skills Section */
+.skills-section {
+    margin: 2rem 0;
+}
+
+.skill-categories {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.skill-category {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+}
+
+.skill-category h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background: #e9ecef;
+    color: #495057;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: #3498db;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Recommendations Section */
+.recommendations-section {
+    margin: 2rem 0;
+}
+
+.recommendations-list {
+    list-style: none;
+    padding: 0;
+}
+
+.recommendations-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.recommendations-list li:hover {
+    transform: translateX(5px);
+}
+
+.recommendations-list i {
+    color: #3498db;
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+}
+
+/* Sidebar */
+.sidebar-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    background: #fff;
+}
+
+.sidebar-card h3 {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* Recent Predictions */
+.recent-predictions {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-predictions li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.recent-predictions li:last-child {
+    border-bottom: none;
+}
+
+.recent-predictions .role {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.recent-predictions .confidence {
+    color: #3498db;
+    font-weight: 600;
+}
+
+.recent-predictions .time {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Popular Roles */
+.popular-roles {
+    list-style: none;
+    padding: 0;
+}
+
+.popular-roles li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.popular-roles li:last-child {
+    border-bottom: none;
+}
+
+.popular-roles .role {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.popular-roles .count {
+    background: #e9ecef;
+    color: #495057;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+/* No Prediction State */
+.no-prediction {
+    padding: 3rem 2rem;
+}
+
+.no-prediction i {
+    font-size: 4rem;
+    color: #3498db;
+    margin-bottom: 1.5rem;
+}
+
+.no-prediction h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.no-prediction p {
+    color: #6c757d;
+    margin-bottom: 2rem;
+}
+
+/* Footer */
+.footer {
+    background: #2c3e50;
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer h5 {
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .role-box {
+        padding: 1.5rem;
+    }
+    
+    .predicted-role {
+        font-size: 1.5rem;
+    }
+    
+    .skill-category {
+        padding: 1rem;
+    }
+    
+    .recommendations-list li {
+        padding: 0.8rem;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+} 

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Circle -->
+    <circle cx="400" cy="300" r="250" fill="#ffffff" opacity="0.1"/>
+    
+    <!-- Brain Network -->
+    <g transform="translate(200, 150)">
+        <!-- Central Node -->
+        <circle cx="200" cy="150" r="40" fill="#3498db" opacity="0.8"/>
+        <text x="200" y="155" text-anchor="middle" fill="white" font-size="24" font-weight="bold">AI</text>
+        
+        <!-- Connected Nodes -->
+        <g class="nodes">
+            <circle cx="100" cy="100" r="25" fill="#2ecc71" opacity="0.8"/>
+            <circle cx="300" cy="100" r="25" fill="#e74c3c" opacity="0.8"/>
+            <circle cx="100" cy="200" r="25" fill="#f1c40f" opacity="0.8"/>
+            <circle cx="300" cy="200" r="25" fill="#9b59b6" opacity="0.8"/>
+        </g>
+        
+        <!-- Connection Lines -->
+        <g class="connections" stroke="#ffffff" stroke-width="2" opacity="0.3">
+            <line x1="200" y1="150" x2="100" y2="100"/>
+            <line x1="200" y1="150" x2="300" y2="100"/>
+            <line x1="200" y1="150" x2="100" y2="200"/>
+            <line x1="200" y1="150" x2="300" y2="200"/>
+        </g>
+        
+        <!-- Node Labels -->
+        <g class="labels" fill="white" font-size="14">
+            <text x="100" y="105" text-anchor="middle">Skills</text>
+            <text x="300" y="105" text-anchor="middle">Experience</text>
+            <text x="100" y="205" text-anchor="middle">Education</text>
+            <text x="300" y="205" text-anchor="middle">Projects</text>
+        </g>
+    </g>
+    
+    <!-- Decorative Elements -->
+    <g class="decorations" opacity="0.1">
+        <circle cx="100" cy="100" r="5" fill="#3498db"/>
+        <circle cx="700" cy="100" r="5" fill="#3498db"/>
+        <circle cx="100" cy="500" r="5" fill="#3498db"/>
+        <circle cx="700" cy="500" r="5" fill="#3498db"/>
+    </g>
+    
+    <!-- Animated Pulse Effect -->
+    <circle cx="400" cy="300" r="250" fill="none" stroke="#3498db" stroke-width="2" opacity="0.2">
+        <animate attributeName="r" values="250;270;250" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.2;0.1;0.2" dur="3s" repeatCount="indefinite"/>
+    </circle>
+</svg> 

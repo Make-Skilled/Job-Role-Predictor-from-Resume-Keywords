@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Role Predictions - AI Analysis Results</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='predictions.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('home') }}">
+                <i class="fas fa-brain"></i> Job Role Predictor
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('home') }}#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('home') }}#how-it-works">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('home') }}">
+                            <i class="fas fa-upload"></i> Upload Resume
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <div class="row">
+            <!-- Main Prediction Card -->
+            <div class="col-lg-8">
+                {% if prediction %}
+                <div class="card main-card">
+                    <div class="card-body">
+                        <h2 class="card-title">AI Analysis Results</h2>
+                        
+                        <!-- Predicted Role -->
+                        <div class="role-box">
+                            <h3>Predicted Role</h3>
+                            <div class="predicted-role">
+                                <i class="fas fa-user-tie"></i>
+                                <span>{{ prediction.predicted_role }}</span>
+                            </div>
+                            <div class="confidence-score">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" 
+                                         style="width: {{ prediction.confidence * 100 }}%"
+                                         aria-valuenow="{{ prediction.confidence * 100 }}" 
+                                         aria-valuemin="0" aria-valuemax="100">
+                                        {{ "%.1f"|format(prediction.confidence * 100) }}% Confidence
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Skills Section -->
+                        <div class="skills-section">
+                            <h3>Extracted Skills</h3>
+                            <div class="skill-categories">
+                                {% for category, skills in prediction.skill_categories.items() %}
+                                <div class="skill-category">
+                                    <h4>{{ category|replace('_', ' ')|title }}</h4>
+                                    <div class="skill-tags">
+                                        {% for skill in skills %}
+                                        <span class="skill-tag">{{ skill }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <!-- Recommendations -->
+                        <div class="recommendations-section">
+                            <h3>Career Recommendations</h3>
+                            <ul class="recommendations-list">
+                                {% for recommendation in prediction.recommendations %}
+                                <li>
+                                    <i class="fas fa-lightbulb"></i>
+                                    {{ recommendation }}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="card main-card">
+                    <div class="card-body text-center no-prediction">
+                        <i class="fas fa-file-upload"></i>
+                        <h3>No Prediction Yet</h3>
+                        <p>Upload your resume to get started with AI-powered job role prediction.</p>
+                        <a href="{{ url_for('home') }}" class="btn btn-primary">
+                            <i class="fas fa-upload"></i> Upload Resume
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- Recent Predictions -->
+                <div class="card sidebar-card">
+                    <div class="card-body">
+                        <h3>Recent Predictions</h3>
+                        <ul class="recent-predictions">
+                            {% for pred in recent_predictions %}
+                            <li>
+                                <span class="role">{{ pred.role }}</span>
+                                <span class="confidence">{{ "%.1f"|format(pred.confidence * 100) }}%</span>
+                                <span class="time">{{ pred.timestamp|datetime }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Popular Roles -->
+                <div class="card sidebar-card">
+                    <div class="card-body">
+                        <h3>Popular Roles</h3>
+                        <ul class="popular-roles">
+                            {% for role in popular_roles %}
+                            <li>
+                                <span class="role">{{ role.name }}</span>
+                                <span class="count">{{ role.count }} predictions</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Job Role Predictor</h5>
+                    <p>AI-powered resume analysis for better career decisions.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p>&copy; 2024 Job Role Predictor. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
