@@ -1,0 +1,87 @@
+{
+    "accuracy": 1.0,
+    "std_dev": 0.0,
+    "top_features": [
+        {
+            "feature": "model",
+            "importance": 0.008866532926077184
+        },
+        {
+            "feature": "strong background data",
+            "importance": 0.005661048435379424
+        },
+        {
+            "feature": "scientist",
+            "importance": 0.005475262517322162
+        },
+        {
+            "feature": "skilled mobile",
+            "importance": 0.00544280440029161
+        },
+        {
+            "feature": "product manager",
+            "importance": 0.00544220714818783
+        },
+        {
+            "feature": "incident",
+            "importance": 0.005431335486196353
+        },
+        {
+            "feature": "frontend",
+            "importance": 0.005354666193475526
+        },
+        {
+            "feature": "ui ux designer",
+            "importance": 0.005195862352818742
+        },
+        {
+            "feature": "infrastructure",
+            "importance": 0.005114348209356212
+        },
+        {
+            "feature": "javascript react",
+            "importance": 0.004999721403835672
+        },
+        {
+            "feature": "cloud",
+            "importance": 0.004991556665764224
+        },
+        {
+            "feature": "ml",
+            "importance": 0.004940555840110142
+        },
+        {
+            "feature": "skilled model",
+            "importance": 0.0049063781699223204
+        },
+        {
+            "feature": "test automation",
+            "importance": 0.004890688651719649
+        },
+        {
+            "feature": "security engineer",
+            "importance": 0.004856985997867069
+        },
+        {
+            "feature": "threat",
+            "importance": 0.004814501910905874
+        },
+        {
+            "feature": "software developer year",
+            "importance": 0.004805461867258205
+        },
+        {
+            "feature": "software testing",
+            "importance": 0.00478975932480558
+        },
+        {
+            "feature": "background",
+            "importance": 0.004789521208589617
+        },
+        {
+            "feature": "response",
+            "importance": 0.004784320973384543
+        }
+    ],
+    "classification_report": "                           precision    recall  f1-score   support\n\n            AI Researcher       1.00      1.00      1.00         6\n        Backend Developer       1.00      1.00      1.00         6\n     Blockchain Developer       1.00      1.00      1.00         6\n         Business Analyst       1.00      1.00      1.00         6\n          Cloud Architect       1.00      1.00      1.00         6\n            Data Engineer       1.00      1.00      1.00         6\n           Data Scientist       1.00      1.00      1.00         6\n   Database Administrator       1.00      1.00      1.00         6\n          DevOps Engineer       1.00      1.00      1.00         6\nEmbedded Systems Engineer       1.00      1.00      1.00         6\n       Frontend Developer       1.00      1.00      1.00         6\n     Full Stack Developer       1.00      1.00      1.00         6\n           Game Developer       1.00      1.00      1.00         6\nMachine Learning Engineer       1.00      1.00      1.00         6\n         Mobile Developer       1.00      1.00      1.00         6\n         Network Engineer       1.00      1.00      1.00         6\n          Product Manager       1.00      1.00      1.00         6\n              QA Engineer       1.00      1.00      1.00         6\n                      SRE       1.00      1.00      1.00         6\n        Security Engineer       1.00      1.00      1.00         6\n       Software Developer       1.00      1.00      1.00         6\n    Systems Administrator       1.00      1.00      1.00         6\n         Technical Writer       1.00      1.00      1.00         6\n           UI/UX Designer       1.00      1.00      1.00         6\n\n                 accuracy                           1.00       144\n                macro avg       1.00      1.00      1.00       144\n             weighted avg       1.00      1.00      1.00       144\n"
+}

@@ -3,7 +3,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.model_selection import LeaveOneOut, cross_val_score
+from sklearn.model_selection import LeaveOneOut, cross_val_score, StratifiedKFold
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 from sklearn.pipeline import Pipeline
@@ -55,23 +55,57 @@ def validate_data(data):
     
     return data
 
+def augment_training_data(data):
+    """Augment training data by creating variations of existing examples."""
+    logging.info("Augmenting training data...")
+    augmented_data = []
+    
+    for _, row in data.iterrows():
+        # Original example
+        augmented_data.append(row)
+        
+        # Create variations by combining skills and categories
+        skills = row['skills']
+        categories = row['skill_categories']
+        
+        # Variation 1: Emphasize required skills
+        if len(skills) > 1:
+            new_row = row.copy()
+            new_row['resume_text'] = f"{row['resume_text']} {' '.join(skills[:2])}"
+            augmented_data.append(new_row)
+        
+        # Variation 2: Add category context
+        if categories:
+            new_row = row.copy()
+            category_text = ' '.join(f"{k} {v}" for k, v in categories.items())
+            new_row['resume_text'] = f"{row['resume_text']} {category_text}"
+            augmented_data.append(new_row)
+    
+    return pd.DataFrame(augmented_data)
+
 def create_model_pipeline():
     """Create a pipeline for text processing and classification."""
     return Pipeline([
         ('tfidf', TfidfVectorizer(
-            max_features=5000,
-            ngram_range=(1, 2),
-            min_df=2,
+            max_features=10000,
+            ngram_range=(1, 3),
+            min_df=1,  # Reduced from 2 to handle small dataset
             max_df=0.95,
-            stop_words='english'
+            stop_words='english',
+            sublinear_tf=True,
+            use_idf=True,
+            smooth_idf=True
         )),
         ('classifier', RandomForestClassifier(
-            n_estimators=200,
-            max_depth=None,
-            min_samples_split=2,
-            min_samples_leaf=1,
+            n_estimators=200,  # Reduced from 500 for small dataset
+            max_depth=10,  # Reduced from 20
+            min_samples_split=2,  # Reduced from 5
+            min_samples_leaf=1,  # Reduced from 2
+            max_features='sqrt',
+            bootstrap=True,
             random_state=42,
-            class_weight='balanced'
+            class_weight='balanced',
+            n_jobs=-1
         ))
     ])
 
@@ -79,7 +113,7 @@ def evaluate_model(model, X, y):
     """Evaluate the model using leave-one-out cross-validation."""
     logging.info("Evaluating model performance...")
     
-    # Use leave-one-out cross-validation
+    # Use leave-one-out cross-validation for small dataset
     loo = LeaveOneOut()
     scores = cross_val_score(model, X, y, cv=loo, scoring='accuracy')
     
@@ -104,15 +138,21 @@ def evaluate_model(model, X, y):
     }).sort_values('importance', ascending=False)
     
     # Log top features
-    logging.info("\nTop 10 most important features:")
-    for _, row in feature_importance.head(10).iterrows():
+    logging.info("\nTop 20 most important features:")
+    for _, row in feature_importance.head(20).iterrows():
         logging.info(f"{row['feature']}: {row['importance']:.3f}")
+    
+    # Calculate and log per-class metrics
+    y_pred = model.predict(X)
+    class_report = classification_report(y, y_pred)
+    logging.info("\nClassification Report:\n" + class_report)
     
     # Save metrics
     metrics = {
         'accuracy': accuracy,
         'std_dev': std_dev,
-        'top_features': feature_importance.head(20).to_dict('records')
+        'top_features': feature_importance.head(20).to_dict('records'),
+        'classification_report': class_report
     }
     
     return model, metrics
@@ -172,13 +212,24 @@ def train_model():
         data['skills'] = data['processed_text'].apply(extract_skills)
         data['skill_categories'] = data['skills'].apply(get_skill_categories)
         
+        # Augment training data
+        logging.info("Augmenting training data...")
+        data = augment_training_data(data)
+        logging.info(f"Training data size after augmentation: {len(data)} examples")
+        
+        # Recompute skill-based features for augmented data
+        logging.info("Adding skill-based features...")
+        data['skill_text'] = data['skills'].apply(lambda skills: ' '.join(skills))
+        data['category_text'] = data['skill_categories'].apply(lambda cats: ' '.join(f"{k}_{v}" for k, v in cats.items()))
+        combined_text = data['processed_text'] + ' ' + data['skill_text'] + ' ' + data['category_text']
+        
         # Create model pipeline
         pipeline = create_model_pipeline()
         
         # Evaluate model using leave-one-out cross-validation
         best_model, metrics = evaluate_model(
             pipeline,
-            data['processed_text'],
+            combined_text,
             data['job_role']
         )
         

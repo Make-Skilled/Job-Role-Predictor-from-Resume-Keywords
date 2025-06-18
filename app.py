@@ -82,12 +82,12 @@ def get_recommendations(predicted_role, skills, skill_categories):
     recommendations = []
     
     # Add skill-based recommendations
-    if skill_categories.get('programming'):
-        recommendations.append(f"Consider highlighting your programming skills in {', '.join(skill_categories['programming'][:3])}")
-    if skill_categories.get('web'):
-        recommendations.append(f"Emphasize your web development experience with {', '.join(skill_categories['web'][:3])}")
-    if skill_categories.get('database'):
-        recommendations.append(f"Showcase your database expertise in {', '.join(skill_categories['database'][:3])}")
+    if skill_categories.get('programming_languages'):
+        recommendations.append(f"Consider highlighting your programming skills")
+    if skill_categories.get('web_technologies'):
+        recommendations.append(f"Emphasize your web development experience")
+    if skill_categories.get('databases'):
+        recommendations.append(f"Showcase your database expertise")
     
     # Add role-specific recommendations
     role_recommendations = {

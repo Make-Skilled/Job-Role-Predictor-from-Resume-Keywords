@@ -209,7 +209,15 @@ def preprocess_text(text):
     # Convert to lowercase
     text = text.lower()
     
-    # Remove special characters and numbers
+    # Preserve technical terms before cleaning
+    technical_terms = []
+    for category in SKILLS.values():
+        for skill, keywords in category.items():
+            for keyword in keywords:
+                if keyword in text:
+                    technical_terms.append(keyword)
+    
+    # Remove special characters and numbers, but preserve technical terms
     text = re.sub(r'[^a-zA-Z\s]', ' ', text)
     
     # Tokenize
@@ -223,6 +231,9 @@ def preprocess_text(text):
     lemmatizer = WordNetLemmatizer()
     tokens = [lemmatizer.lemmatize(token) for token in tokens]
     
+    # Add back technical terms
+    tokens.extend(technical_terms)
+    
     return ' '.join(tokens)
 
 def extract_skills(text):
@@ -234,8 +245,11 @@ def extract_skills(text):
     for category, skills_dict in SKILLS.items():
         for skill, keywords in skills_dict.items():
             for keyword in keywords:
-                if keyword in text:
-                    skills[skill] += 1
+                # Use word boundary matching for more accurate skill detection
+                pattern = r'\b' + re.escape(keyword) + r'\b'
+                matches = re.findall(pattern, text)
+                if matches:
+                    skills[skill] += len(matches)
     
     # Sort skills by frequency
     sorted_skills = sorted(skills.items(), key=lambda x: x[1], reverse=True)
@@ -260,12 +274,17 @@ def calculate_role_score(skills, skill_categories, role):
     # Check required categories
     for category in requirements['required']:
         if category in skill_categories:
-            score += skill_categories[category] * 2  # Higher weight for required skills
+            score += skill_categories[category] * 3  # Higher weight for required skills
     
     # Check preferred categories
     for category in requirements['preferred']:
         if category in skill_categories:
-            score += skill_categories[category]
+            score += skill_categories[category] * 2  # Medium weight for preferred skills
+    
+    # Add bonus for having multiple skills in required categories
+    required_skills_count = sum(skill_categories.get(cat, 0) for cat in requirements['required'])
+    if required_skills_count >= 2:
+        score += required_skills_count
     
     return score
 

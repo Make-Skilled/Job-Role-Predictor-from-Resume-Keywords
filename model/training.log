@@ -1,92 +1,94 @@
-2025-06-05 13:02:42,966 - INFO - Starting model training process...
-2025-06-05 13:02:42,973 - ERROR - Error during model training: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
-2025-06-05 13:03:08,617 - INFO - Starting model training process...
-2025-06-05 13:03:08,619 - ERROR - Error during model training: [Errno 2] No such file or directory: 'data/training_data.csv'
-2025-06-05 13:03:36,600 - INFO - Starting model training process...
-2025-06-05 13:03:36,626 - INFO - Validating training data...
-2025-06-05 13:03:36,645 - INFO - Preprocessing resume texts...
-2025-06-05 13:03:40,353 - INFO - Extracting skills and categories...
-2025-06-05 13:03:40,364 - ERROR - Error during model training: The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.
-2025-06-05 13:04:51,572 - INFO - Starting model training process...
-2025-06-05 13:04:51,580 - INFO - Validating training data...
-2025-06-05 13:04:51,583 - INFO - Preprocessing resume texts...
-2025-06-05 13:04:53,465 - INFO - Extracting skills and categories...
-2025-06-05 13:04:53,470 - ERROR - Error during model training: The test_size = 10 should be greater or equal to the number of classes = 24
-2025-06-05 13:05:57,247 - INFO - Starting model training process...
-2025-06-05 13:05:57,250 - INFO - Validating training data...
-2025-06-05 13:05:57,266 - INFO - 
+2025-06-09 10:27:42,104 - INFO - Starting model training process...
+2025-06-09 10:27:42,174 - INFO - Validating training data...
+2025-06-09 10:27:42,193 - INFO - 
 Class distribution:
-2025-06-05 13:05:57,266 - INFO - Software Developer: 2 examples
-2025-06-05 13:05:57,267 - INFO - Data Scientist: 2 examples
-2025-06-05 13:05:57,267 - INFO - Network Engineer: 2 examples
-2025-06-05 13:05:57,267 - INFO - AI Researcher: 2 examples
-2025-06-05 13:05:57,268 - INFO - Data Engineer: 2 examples
-2025-06-05 13:05:57,268 - INFO - Embedded Systems Engineer: 2 examples
-2025-06-05 13:05:57,268 - INFO - Game Developer: 2 examples
-2025-06-05 13:05:57,268 - INFO - Blockchain Developer: 2 examples
-2025-06-05 13:05:57,269 - INFO - Technical Writer: 2 examples
-2025-06-05 13:05:57,269 - INFO - Business Analyst: 2 examples
-2025-06-05 13:05:57,269 - INFO - Systems Administrator: 2 examples
-2025-06-05 13:05:57,270 - INFO - QA Engineer: 2 examples
-2025-06-05 13:05:57,270 - INFO - UI/UX Designer: 2 examples
-2025-06-05 13:05:57,270 - INFO - Product Manager: 2 examples
-2025-06-05 13:05:57,270 - INFO - Security Engineer: 2 examples
-2025-06-05 13:05:57,271 - INFO - Database Administrator: 2 examples
-2025-06-05 13:05:57,271 - INFO - Mobile Developer: 2 examples
-2025-06-05 13:05:57,271 - INFO - Cloud Architect: 2 examples
-2025-06-05 13:05:57,272 - INFO - Machine Learning Engineer: 2 examples
-2025-06-05 13:05:57,272 - INFO - Backend Developer: 2 examples
-2025-06-05 13:05:57,273 - INFO - Frontend Developer: 2 examples
-2025-06-05 13:05:57,274 - INFO - DevOps Engineer: 2 examples
-2025-06-05 13:05:57,274 - INFO - Full Stack Developer: 2 examples
-2025-06-05 13:05:57,274 - INFO - SRE: 2 examples
-2025-06-05 13:05:57,275 - INFO - Preprocessing resume texts...
-2025-06-05 13:05:58,803 - INFO - Extracting skills and categories...
-2025-06-05 13:05:58,810 - ERROR - Error during model training: The test_size = 15 should be greater or equal to the number of classes = 24
-2025-06-05 13:07:09,971 - INFO - Starting model training process...
-2025-06-05 13:07:09,975 - INFO - Validating training data...
-2025-06-05 13:07:09,978 - INFO - 
-Class distribution:
-2025-06-05 13:07:09,979 - INFO - Software Developer: 2 examples
-2025-06-05 13:07:09,979 - INFO - Data Scientist: 2 examples
-2025-06-05 13:07:09,980 - INFO - Network Engineer: 2 examples
-2025-06-05 13:07:09,980 - INFO - AI Researcher: 2 examples
-2025-06-05 13:07:09,980 - INFO - Data Engineer: 2 examples
-2025-06-05 13:07:09,981 - INFO - Embedded Systems Engineer: 2 examples
-2025-06-05 13:07:09,981 - INFO - Game Developer: 2 examples
-2025-06-05 13:07:09,981 - INFO - Blockchain Developer: 2 examples
-2025-06-05 13:07:09,981 - INFO - Technical Writer: 2 examples
-2025-06-05 13:07:09,982 - INFO - Business Analyst: 2 examples
-2025-06-05 13:07:09,982 - INFO - Systems Administrator: 2 examples
-2025-06-05 13:07:09,983 - INFO - QA Engineer: 2 examples
-2025-06-05 13:07:09,983 - INFO - UI/UX Designer: 2 examples
-2025-06-05 13:07:09,983 - INFO - Product Manager: 2 examples
-2025-06-05 13:07:09,984 - INFO - Security Engineer: 2 examples
-2025-06-05 13:07:09,984 - INFO - Database Administrator: 2 examples
-2025-06-05 13:07:09,985 - INFO - Mobile Developer: 2 examples
-2025-06-05 13:07:09,985 - INFO - Cloud Architect: 2 examples
-2025-06-05 13:07:09,986 - INFO - Machine Learning Engineer: 2 examples
-2025-06-05 13:07:09,987 - INFO - Backend Developer: 2 examples
-2025-06-05 13:07:09,987 - INFO - Frontend Developer: 2 examples
-2025-06-05 13:07:09,987 - INFO - DevOps Engineer: 2 examples
-2025-06-05 13:07:09,987 - INFO - Full Stack Developer: 2 examples
-2025-06-05 13:07:09,989 - INFO - SRE: 2 examples
-2025-06-05 13:07:09,989 - INFO - Preprocessing resume texts...
-2025-06-05 13:07:11,706 - INFO - Extracting skills and categories...
-2025-06-05 13:07:11,710 - INFO - Evaluating model performance...
-2025-06-05 13:07:30,140 - INFO - Cross-validation accuracy: 0.500 (+/- 0.500)
-2025-06-05 13:07:30,534 - INFO - 
-Top 10 most important features:
-2025-06-05 13:07:30,535 - INFO - background: 0.014
-2025-06-05 13:07:30,535 - INFO - automation: 0.010
-2025-06-05 13:07:30,536 - INFO - engineer: 0.010
-2025-06-05 13:07:30,536 - INFO - strong background: 0.010
-2025-06-05 13:07:30,537 - INFO - expertise: 0.010
-2025-06-05 13:07:30,537 - INFO - data: 0.010
-2025-06-05 13:07:30,538 - INFO - design: 0.009
-2025-06-05 13:07:30,538 - INFO - security: 0.009
-2025-06-05 13:07:30,539 - INFO - development: 0.009
-2025-06-05 13:07:30,539 - INFO - developer: 0.008
-2025-06-05 13:07:30,564 - INFO - Generating feature importance plot...
-2025-06-05 13:07:32,712 - INFO - Model artifacts saved to model\version_20250605_130732
-2025-06-05 13:07:32,713 - INFO - Model training completed successfully!
+2025-06-09 10:27:42,194 - INFO - Software Developer: 2 examples
+2025-06-09 10:27:42,194 - INFO - Data Scientist: 2 examples
+2025-06-09 10:27:42,195 - INFO - Network Engineer: 2 examples
+2025-06-09 10:27:42,195 - INFO - AI Researcher: 2 examples
+2025-06-09 10:27:42,196 - INFO - Data Engineer: 2 examples
+2025-06-09 10:27:42,196 - INFO - Embedded Systems Engineer: 2 examples
+2025-06-09 10:27:42,197 - INFO - Game Developer: 2 examples
+2025-06-09 10:27:42,197 - INFO - Blockchain Developer: 2 examples
+2025-06-09 10:27:42,198 - INFO - Technical Writer: 2 examples
+2025-06-09 10:27:42,203 - INFO - Business Analyst: 2 examples
+2025-06-09 10:27:42,203 - INFO - Systems Administrator: 2 examples
+2025-06-09 10:27:42,204 - INFO - QA Engineer: 2 examples
+2025-06-09 10:27:42,205 - INFO - UI/UX Designer: 2 examples
+2025-06-09 10:27:42,205 - INFO - Product Manager: 2 examples
+2025-06-09 10:27:42,207 - INFO - Security Engineer: 2 examples
+2025-06-09 10:27:42,207 - INFO - Database Administrator: 2 examples
+2025-06-09 10:27:42,208 - INFO - Mobile Developer: 2 examples
+2025-06-09 10:27:42,208 - INFO - Cloud Architect: 2 examples
+2025-06-09 10:27:42,209 - INFO - Machine Learning Engineer: 2 examples
+2025-06-09 10:27:42,210 - INFO - Backend Developer: 2 examples
+2025-06-09 10:27:42,210 - INFO - Frontend Developer: 2 examples
+2025-06-09 10:27:42,211 - INFO - DevOps Engineer: 2 examples
+2025-06-09 10:27:42,212 - INFO - Full Stack Developer: 2 examples
+2025-06-09 10:27:42,212 - INFO - SRE: 2 examples
+2025-06-09 10:27:42,213 - INFO - Preprocessing resume texts...
+2025-06-09 10:27:46,571 - INFO - Extracting skills and categories...
+2025-06-09 10:27:46,688 - INFO - Augmenting training data...
+2025-06-09 10:27:46,689 - INFO - Augmenting training data...
+2025-06-09 10:27:46,735 - INFO - Training data size after augmentation: 144 examples
+2025-06-09 10:27:46,736 - INFO - Adding skill-based features...
+2025-06-09 10:27:46,744 - INFO - Evaluating model performance...
+2025-06-09 10:33:11,265 - INFO - Cross-validation accuracy: 1.000 (+/- 0.000)
+2025-06-09 10:33:13,023 - INFO - 
+Top 20 most important features:
+2025-06-09 10:33:13,031 - INFO - model: 0.009
+2025-06-09 10:33:13,033 - INFO - strong background data: 0.006
+2025-06-09 10:33:13,035 - INFO - scientist: 0.005
+2025-06-09 10:33:13,037 - INFO - skilled mobile: 0.005
+2025-06-09 10:33:13,037 - INFO - product manager: 0.005
+2025-06-09 10:33:13,039 - INFO - incident: 0.005
+2025-06-09 10:33:13,040 - INFO - frontend: 0.005
+2025-06-09 10:33:13,041 - INFO - ui ux designer: 0.005
+2025-06-09 10:33:13,042 - INFO - infrastructure: 0.005
+2025-06-09 10:33:13,044 - INFO - javascript react: 0.005
+2025-06-09 10:33:13,046 - INFO - cloud: 0.005
+2025-06-09 10:33:13,047 - INFO - ml: 0.005
+2025-06-09 10:33:13,049 - INFO - skilled model: 0.005
+2025-06-09 10:33:13,051 - INFO - test automation: 0.005
+2025-06-09 10:33:13,052 - INFO - security engineer: 0.005
+2025-06-09 10:33:13,058 - INFO - threat: 0.005
+2025-06-09 10:33:13,065 - INFO - software developer year: 0.005
+2025-06-09 10:33:13,068 - INFO - software testing: 0.005
+2025-06-09 10:33:13,069 - INFO - background: 0.005
+2025-06-09 10:33:13,069 - INFO - response: 0.005
+2025-06-09 10:33:13,505 - INFO - 
+Classification Report:
+                           precision    recall  f1-score   support
+
+            AI Researcher       1.00      1.00      1.00         6
+        Backend Developer       1.00      1.00      1.00         6
+     Blockchain Developer       1.00      1.00      1.00         6
+         Business Analyst       1.00      1.00      1.00         6
+          Cloud Architect       1.00      1.00      1.00         6
+            Data Engineer       1.00      1.00      1.00         6
+           Data Scientist       1.00      1.00      1.00         6
+   Database Administrator       1.00      1.00      1.00         6
+          DevOps Engineer       1.00      1.00      1.00         6
+Embedded Systems Engineer       1.00      1.00      1.00         6
+       Frontend Developer       1.00      1.00      1.00         6
+     Full Stack Developer       1.00      1.00      1.00         6
+           Game Developer       1.00      1.00      1.00         6
+Machine Learning Engineer       1.00      1.00      1.00         6
+         Mobile Developer       1.00      1.00      1.00         6
+         Network Engineer       1.00      1.00      1.00         6
+          Product Manager       1.00      1.00      1.00         6
+              QA Engineer       1.00      1.00      1.00         6
+                      SRE       1.00      1.00      1.00         6
+        Security Engineer       1.00      1.00      1.00         6
+       Software Developer       1.00      1.00      1.00         6
+    Systems Administrator       1.00      1.00      1.00         6
+         Technical Writer       1.00      1.00      1.00         6
+           UI/UX Designer       1.00      1.00      1.00         6
+
+                 accuracy                           1.00       144
+                macro avg       1.00      1.00      1.00       144
+             weighted avg       1.00      1.00      1.00       144
+
+2025-06-09 10:33:13,741 - INFO - Generating feature importance plot...
+2025-06-09 10:33:17,985 - INFO - Model artifacts saved to model\version_20250609_103317
+2025-06-09 10:33:17,987 - INFO - Model training completed successfully!

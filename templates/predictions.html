@@ -69,16 +69,22 @@
                         <div class="skills-section">
                             <h3>Extracted Skills</h3>
                             <div class="skill-categories">
-                                {% for category, skills in prediction.skill_categories.items() %}
+                                {% for category, count in prediction.skill_categories.items() %}
                                 <div class="skill-category">
                                     <h4>{{ category|replace('_', ' ')|title }}</h4>
-                                    <div class="skill-tags">
-                                        {% for skill in skills %}
-                                        <span class="skill-tag">{{ skill }}</span>
-                                        {% endfor %}
+                                    <div class="skill-count">
+                                        <span class="badge bg-primary">{{ count }} skills</span>
                                     </div>
                                 </div>
                                 {% endfor %}
+                            </div>
+                            <div class="extracted-skills mt-3">
+                                <h4>Detailed Skills</h4>
+                                <div class="skill-tags">
+                                    {% for skill in prediction.extracted_skills %}
+                                    <span class="skill-tag">{{ skill }}</span>
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
 
